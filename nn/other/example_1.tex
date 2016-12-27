@@ -1,0 +1,54 @@
+\tikzset{
+  arro/.style={
+    ->,
+    >=latex
+  },
+  bloque/.style={
+    draw,
+    minimum height=1cm,
+    minimum width=0.5cm
+  }  
+}
+
+
+
+\begin{tikzpicture}
+\node[]
+  (input)
+  {Input};
+\node[bloque,below=of input,label={left:$w(t-2)$}]
+  (inputi)
+  {};
+\node[bloque,below=of inputi,label={left:$w(t-1)$}]
+  (inputii)
+  {};
+\coordinate[below=of inputii] (aux);  
+\node[bloque,below=of aux,label={left:$w(t+1)$}]
+  (inputiii)
+  {};
+\node[bloque,below=of inputiii,label={left:$w(t+2)$}]
+  (inputiv)
+  {};
+
+\node[right=of input]
+  (proje)
+  {Projection};
+\node[bloque,label={above:\textsc{sum}}]
+  at (proje|-aux)
+  (projei)
+  {};
+
+\node[right=of proje]
+  (out)
+  {Output};
+\node[bloque,label={right:$w(t)$}]
+  at (out|-aux)
+  (outi)
+  {};
+
+\foreach \Valor in {i,ii,iii,iv}
+{
+  \draw[arro] (input\Valor) -- (projei);
+}  
+\draw[arro] (projei) -- (outi);
+\end{tikzpicture}
