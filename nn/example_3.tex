@@ -1,0 +1,46 @@
+\documentclass[border=2mm]{standalone}
+
+\usepackage{bm}
+\usepackage{pstricks-add}
+
+\def\pointTop(#1)#2#3{%
+	\pscircle[
+		linewidth = 1.7\pslinewidth
+	](#1){0.35}
+	\rput(#1){\textcolor{red}{$c_{#2}$}}
+	\uput[90](#1){$h_{#3}$}
+}
+
+\def\pointBottom(#1)#2#3{%
+	\pscircle[
+		linewidth = 1.7\pslinewidth,
+		fillstyle = solid,
+		fillcolor = gray!50
+	](#1){0.35}
+	\rput(#1){\textcolor{red}{$b_{#2}$}}
+	\uput[270](#1){$v_{#3}$}
+}
+
+\begin{document}
+\begin{pspicture}(-0.35,-0.69)(5.95,2.77)
+\psset{labelsep = 14pt}
+	\pnodes{P}(0,2)(1,2)(2,2)(5.5,2)(3.75,2)(0.5,0)(1.5,0)(2.5,0)(5,0)(3.75,0)
+	\multido{\iA = 0+1, \iB = 5+1, \iC = 1+1}{3}{%
+		\multido{\r = 0.5+1}{3}{%
+			\psline(\iA,1.65)(5,0.35)
+			\psline(\iA,1.65)(\r,0.35)
+			\psline(5.5,1.65)(\r,0.35)
+		}
+		\pointTop(P\iA){\iC}{\iC}
+		\pointBottom(P\iB){\iC}{\iC}
+	}
+	\rput(P4){$\bm\cdots$}
+	\pointTop(P3){n}{n}
+	\rput(P9){$\bm\cdots$}
+	\pointBottom(P8){m}{m}
+	\psline(5.5,1.65)(5,0.35)
+	\pcline[linestyle = none, offset = 12pt](P3)(P8)
+	\ncput{\textcolor{red}{$w_{nm}$}}
+
+\end{pspicture}
+\end{document}
