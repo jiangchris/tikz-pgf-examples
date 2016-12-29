@@ -1,3 +1,9 @@
+\documentclass[border=2mm]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning,fit,arrows.meta}
+
+\begin{document}
+
 \begin{tikzpicture}[
     prod/.style={circle, draw, inner sep=0pt},
     ct/.style={circle, draw, inner sep=5pt, ultra thick, minimum width=10mm},
@@ -46,3 +52,4 @@
 \draw[<-] ([xshift=1mm]aux)--++(-45:7mm);
 \draw[<-] ([xshift=-1mm]aux)--++(-135:7mm);
 \end{tikzpicture}
+\end{document}

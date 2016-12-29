@@ -1,3 +1,6 @@
+\documentclass[tikz,border=2mm]{standalone}
+\usetikzlibrary{positioning,calc}
+
 \tikzset{
   redondo/.style={draw=blue,line width=1pt,rounded corners=3pt,text width=#1},
   punto/.style={fill=red,circle,inner sep=1.25pt},
@@ -13,6 +16,9 @@
   cuadra/.style={fill=teal,minimum size=10pt},
   arr/.style={line width=1pt,draw=green!70!black,->,>=latex}  
 }
+
+\begin{document}
+
 \begin{tikzpicture}[node distance=2cm and 1cm]
 	\node[redondo=7cm](upper){};
 	\pic at (upper.west) {tresp};
@@ -54,3 +60,5 @@
 	\node[anchor=south west] at (auxc) {Matrix $C$};    
 	\node[anchor=north west,align=left] at (auxc) {shared parameters \\ across words};    
 \end{tikzpicture}
+
+\end{document}
