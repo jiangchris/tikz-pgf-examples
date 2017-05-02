@@ -1,0 +1,58 @@
+\documentclass[tikz,border=2mm]{standalone}
+\usetikzlibrary{positioning,arrows.meta,calc}
+\tikzset{
+  arro/.style={
+    ->,
+    >=latex
+  },
+  bloque/.style={
+    draw,
+    minimum height=1cm,
+    minimum width=0.5cm
+  }  
+}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+\node[]
+  (out)
+  {Output};
+\node[bloque,below=of out,label={right:$w(t-2)$}]
+  (outi)
+  {};
+\node[bloque,below=of outi,label={right:$w(t-1)$}]
+  (outii)
+  {};
+\coordinate[below=of outii] (aux);  
+\node[bloque,below=of aux,label={right:$w(t+1)$}]
+  (outiii)
+  {};
+\node[bloque,below=of outiii,label={right:$w(t+2)$}]
+  (outiv)
+  {};
+
+\node[left=of out]
+  (proje)
+  {Projection};
+\node[bloque]
+  at (proje|-aux)
+  (projei)
+  {};
+
+\node[left=of proje]
+  (input)
+  {Input};
+\node[bloque,label={left:$w(t)$}]
+  at (input|-aux)
+  (inputi)
+  {};
+
+\foreach \Valor in {i,ii,iii,iv}
+{
+  \draw[arro] (projei) -- (out\Valor);
+}  
+\draw[arro] (inputi) -- (projei);
+\end{tikzpicture}
+\end{document}
