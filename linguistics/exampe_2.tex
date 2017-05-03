@@ -1,0 +1,20 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-qtree,tikz-qtree-compat}
+
+\begin{document}
+  \begin{tikzpicture}[every node/.style={align=center},level distance=30pt]
+    \tikzset{edge from parent/.append style={<-, >=latex,thick}}
+   \Tree [.said\\VBD
+             [.Inc.\\NNP Rolls-Royce\\NNP Motor\\NNP Cars\\NNPS ]
+             [.expects\\VBZ it\\PRP
+                [.remain\\VB
+                   [.sales\\NNS its\\PRP\$ U.S\\NNP ]
+                   to\\TO
+                   steady\\JJ
+                   [.at\\IN [.cars\\NNS [.about\\IN 1200\\CD ] ] ]
+                ]
+             ]
+           ]
+   \end{tikzpicture}
+\end{document}

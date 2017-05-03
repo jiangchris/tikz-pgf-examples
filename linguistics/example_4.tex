@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-dependency}
+
+\begin{document}
+
+\begin{dependency}[edge slant=15pt,label theme = simple, edge theme = iron]
+  \begin{deptext}[column sep=1em]
+    This \& time \& around \& , \& they \& 're \& moving \& even \& faster \&
+    . \\
+  \end{deptext}
+  \deproot{7}{ROOT}
+  \depedge{2}{1}{DET}
+  \depedge{7}{2}{TMOD}
+  \depedge{2}{3}{ADVMOD}
+  \depedge{7}{6}{AUX}
+  \depedge{7}{5}{NSUBJ}
+  \depedge{7}{4}{PUNCT}
+  \depedge{7}{10}{PUNCT}
+  \depedge{7}{9}{ADVMOD}
+  \depedge[edge start x offset=-4pt]{9}{8}{ADVMOD}
+\end{dependency}
+
+\end{document}
